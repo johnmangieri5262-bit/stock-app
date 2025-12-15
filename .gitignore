@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+sql_app.db
+stock-frontend/node_modules/
+stock-frontend/.next/
+stock-frontend/out/
+.vscode/
+.idea/
+*.log

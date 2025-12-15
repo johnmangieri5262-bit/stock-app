@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-foreground-rgb: 0, 0, 0;
+  --color-background-start-rgb: 214, 219, 220;
+  --color-background-end-rgb: 255, 255, 255;
+
+  --color-blue-900: #1e3a8a;
+  --color-fuchsia-900: #701a75;
+  --color-blue-500: #3b82f6;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-blue-400: #60a5fa;
+  --color-fuchsia-500: #d946ef;
+  --color-fuchsia-400: #e879f9;
+  --color-fuchsia-300: #f0abfc;
+  --color-emerald-500: #10b981;
+  --color-rose-500: #f43f5e;
+  --color-emerald-400: #34d399;
+  --color-rose-400: #fb7185;
+}
+
+/* Fallback for dark mode / custom vars if needed */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 10, 10, 10;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: black;
+  /* Force black for dark mode base */
+}
+
+/* Custom Utilities */
+.bg-grid-pattern {
+  background-size: 4rem 4rem;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
