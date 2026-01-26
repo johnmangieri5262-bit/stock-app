@@ -22,9 +22,10 @@ export default function LoginPage() {
     const fetchMarketData = async () => {
       try {
         const symbols = ['BTC-USD', 'SPY', 'ETH-USD'];
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
         const results = await Promise.all(
           symbols.map(sym =>
-            fetch(`http://localhost:8000/stocks/price/${sym}`).then(res => res.json())
+            fetch(`${API_URL}/stocks/price/${sym}`).then(res => res.json())
           )
         );
 
