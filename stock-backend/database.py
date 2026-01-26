@@ -10,6 +10,9 @@ SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
+    # Cleanup possible user copy-paste errors
+    DATABASE_URL = DATABASE_URL.strip().replace('"', '').replace("'", "")
+
     # Fix for some cloud providers using 'postgres://' instead of 'postgresql://'
     if DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
